@@ -1,0 +1,64 @@
+#include<cstdio>
+#include<cstring>
+#include<cctype>
+#include<algorithm>
+#include<stack>
+using namespace std;
+
+stack<char>s;
+
+int main()
+{
+    char a[1010];
+    while(gets(a)){
+        int r, y, b;
+        int len = strlen(a);
+        r = y = b = 0;
+        for(int i = 0; i < len; i++){
+            if(a[i] == '<'){
+                if(a[i+1] == 'r'){
+                    s.push('r');
+                    i+=4;
+                    continue;
+                }
+                else if(a[i+1] == 'y'){
+                    s.push('y');
+                    i+=7;
+                    continue;
+                }
+                else if(a[i+1] == 'b'){
+                    s.push('b');
+                    i+=5;
+                    continue;
+                }
+                else if(a[i+1] == '/'){
+                    s.pop();
+                    if(a[i+2]=='r'){
+                        i+=5;
+                        continue;
+                    }
+                    else if(a[i+2]=='y'){
+                        i+=8;
+                        continue;
+                    }
+                    else if(a[i+2]=='b'){
+                        i+=6;
+                        continue;
+                    }
+                }
+            }
+            else{
+                if(!s.empty()){
+                    if(s.top()=='r' && isalpha(a[i]))
+                        r++;
+                    else if(s.top()=='y' && isalpha(a[i]))
+                        y++;
+                    else if(s.top()=='b' && isalpha(a[i]))
+                        b++;
+                }
+            }
+        }
+        printf("%d %d %d\n", r, y, b);  
+    }
+    return 0;
+}

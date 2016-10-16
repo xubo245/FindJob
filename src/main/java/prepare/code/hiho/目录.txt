@@ -1,0 +1,9 @@
+hihocoder：目录
+hiho1000： A + B
+hiho1014:Trie树
+hiho1015:KMP算法
+hiho1039：字符消除
+hiho1040:矩形判断
+hiho1052：基因工程
+hiho1102:Individual Income Tax
+hiho1197：Give My Text Back
